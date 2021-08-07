@@ -12,7 +12,10 @@ public class Database extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("create table usuario(codigo int primary key,descripcion text,precio real)");
+        db.execSQL("create table usuario(nombre_usuario text primary key,nombre text," +
+                                        "apellido text,correo text, celular text, favorito text)");
+
+
     }
 
     @Override
