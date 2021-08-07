@@ -6,7 +6,7 @@ android {
     compileSdkVersion 30
 
     defaultConfig {
-        applicationId "com.example.ta5"
+        applicationId "com.example.amst3"
         minSdkVersion 18
         targetSdkVersion 30
         versionCode 1

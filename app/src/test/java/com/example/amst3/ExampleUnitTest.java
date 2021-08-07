@@ -1,4 +1,4 @@
-package com.example.ta5;
+package com.example.amst3;
 
 import org.junit.Test;
 
