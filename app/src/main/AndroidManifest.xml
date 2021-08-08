@@ -13,8 +13,10 @@
         <activity android:name=".LoginActivity"
             android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"
             android:label="Login">
+        </activity>
 
-
+        <activity android:name=".HomeActivity"
+            android:label="Libros">
         </activity>
 
         <activity android:name=".MainActivity"
