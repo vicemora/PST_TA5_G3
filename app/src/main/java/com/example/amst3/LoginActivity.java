@@ -23,7 +23,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
+/**
+        //Manejando encendido del icono de inicio
         Drawable p, p_celeste, l, l_celeste;
         p = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_person);
         p_celeste = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_person_celeste);
@@ -58,9 +59,7 @@ public class LoginActivity extends AppCompatActivity {
                 else
                     etPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(l, null, null, null);
             }
-        });
-
-
+        });*/
     }
 
     /**
@@ -117,6 +116,4 @@ public class LoginActivity extends AppCompatActivity {
         //esto permite que el usuario no regrese a la pantalla de presentación
         moveTaskToBack(true);
     }
-
-
 }

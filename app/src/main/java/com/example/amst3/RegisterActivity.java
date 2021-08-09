@@ -48,6 +48,7 @@ public class RegisterActivity extends AppCompatActivity {
         //Obteniendo base de datos en modo lectura
         SQLiteDatabase bd = admin.getWritableDatabase();
 
+        //obtiene los datos pasados como parámetro por el usuario
         String username=et1.getText().toString();
         String password=et2.getText().toString();
         String correo=et3.getText().toString();
