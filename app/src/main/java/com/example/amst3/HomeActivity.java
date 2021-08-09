@@ -3,53 +3,47 @@ package com.example.amst3;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.SearchView;
-
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity {
-    ArrayList<Libro> listLibros;
-    RecyclerView recycler;
-    SearchView svSearch;
+public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.RecyclerItemClick, SearchView.OnQueryTextListener {
+    private RecyclerView recycler;
+    private SearchView svSearch;
+    private RecyclerAdapter adapter;
+    private ArrayList<Libro> listLibros;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        recycler= (RecyclerView) findViewById(R.id.idRecycler);
-        recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        listLibros= new ArrayList<>();
+
+        initViews();
+        initValues();
+        initListener();
         llenarLibros();
-        AdapterDatos adapter= new AdapterDatos(listLibros);
-        adapter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Descripcion.class);
-                i.putExtra("nombre",listLibros.get(recycler.getChildAdapterPosition(v)).getNombre());
-                i.putExtra("descripcion",listLibros.get(recycler.getChildAdapterPosition(v)).getDescripcion());
-                i.putExtra("imagen",listLibros.get(recycler.getChildAdapterPosition(v)).getFoto());
-                startActivity(i);
-                //Toast.makeText(getApplicationContext() ,
-                        //listLibros.get(recycler.getChildAdapterPosition(v)).getNombre(), Toast.LENGTH_SHORT).show();
-            }
-        });
+
+    }
+
+    private void initViews(){
+        recycler = (RecyclerView) findViewById(R.id.idRecycler);
+        svSearch = (SearchView) findViewById(R.id.searchView);
+    }
+
+    private void initValues(){
+        listLibros= new ArrayList<>();
+        recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        adapter= new RecyclerAdapter(listLibros, this);
         recycler.setAdapter(adapter);
     }
 
-   /*public void buscar(View view) {
-        EditText etBuscar = (EditText) findViewById(R.id.etBuscar); //se enlaza con el obj del diseño
-        Intent busqueda = new Intent(this, Busqueda.class ); //se crea para ir a otro activity
-        busqueda.putExtra("nombreBusqueda", etBuscar.getText().toString()); //se agregan las variables que se quieren enviar al activity
-        Bundle bundle=new Bundle();
-        bundle.putSerializable("libros",listLibros);
-        busqueda.putExtras(bundle);
-        startActivity(busqueda); //se abre el activity
-    }*/
-
+    private void initListener() {
+        svSearch.setOnQueryTextListener(this);
+    }
 
 
     private void llenarLibros() {
@@ -69,5 +63,23 @@ public class HomeActivity extends AppCompatActivity {
         listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria"));
         listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria"));
 
+    }
+
+    @Override
+    public void itemClick(Libro libro) {
+        Intent intent = new Intent(this, Descripcion.class);
+        intent.putExtra("libroDetail", libro);
+        startActivity(intent);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        adapter.filter(newText);
+        return false;
     }
 }
