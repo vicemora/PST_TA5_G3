@@ -1,73 +1,157 @@
 package com.example.amst3;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.SearchView;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class HomeActivity extends AppCompatActivity {
-    ArrayList<Libro> listLibros;
-    RecyclerView recycler;
-    SearchView svSearch;
+public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.RecyclerItemClick, SearchView.OnQueryTextListener {
+    private RecyclerView recycler;
+    private SearchView svSearch;
+
+    private ImageButton catButton, homeButton, carButton, profileButton;
+
+    private RecyclerAdapter adapter;
+    private ArrayList<Libro> listLibros;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try{
+            listLibros = (ArrayList<Libro>) getIntent().getExtras().get("libros");
+        } catch (NullPointerException e) {
+            listLibros = null;
+        }
+
         setContentView(R.layout.activity_home);
-        recycler= (RecyclerView) findViewById(R.id.idRecycler);
-        recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        listLibros= new ArrayList<>();
-        llenarLibros();
-        AdapterDatos adapter= new AdapterDatos(listLibros);
-        adapter.setOnClickListener(new View.OnClickListener() {
+
+        initViews();
+        initValues();
+        initListener();
+
+    }
+
+    private void initViews(){
+        recycler = (RecyclerView) findViewById(R.id.idRecycler);
+
+        Drawable rect, rect_celeste;
+        rect = ContextCompat.getDrawable(getApplicationContext(), R.drawable.rec);
+        rect_celeste = ContextCompat.getDrawable(getApplicationContext(), R.drawable.rec_celeste);
+        svSearch = (SearchView) findViewById(R.id.searchView);
+        svSearch.setBackground(rect);
+
+        svSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), Descripcion.class);
-                i.putExtra("nombre",listLibros.get(recycler.getChildAdapterPosition(v)).getNombre());
-                i.putExtra("descripcion",listLibros.get(recycler.getChildAdapterPosition(v)).getDescripcion());
-                i.putExtra("imagen",listLibros.get(recycler.getChildAdapterPosition(v)).getFoto());
-                startActivity(i);
-                //Toast.makeText(getApplicationContext() ,
-                        //listLibros.get(recycler.getChildAdapterPosition(v)).getNombre(), Toast.LENGTH_SHORT).show();
+                svSearch.setIconified(false);
+                svSearch.setBackground(rect_celeste);
             }
         });
+        svSearch.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                svSearch.setBackground(rect);
+                return false;
+            }
+        });
+
+        catButton = (ImageButton) findViewById(R.id.cat_btn);
+        homeButton = (ImageButton) findViewById(R.id.home_btn);
+        carButton = (ImageButton) findViewById(R.id.car_btn);
+        profileButton = (ImageButton) findViewById(R.id.profile_btn);
+        catButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        carButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+    }
+
+    private void initValues(){
+        recycler.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        System.out.println(listLibros == null);
+        if (listLibros == null){
+            listLibros = new ArrayList<>();
+            llenarLibros();
+            System.out.println(listLibros);
+        }else{
+            homeButton.setImageResource(R.drawable.ic_home);
+            catButton.setImageResource(R.drawable.ic_cat_celeste);
+            this.setTitle("Libros de ");
+        }
+
+        adapter = new RecyclerAdapter(listLibros, this);
         recycler.setAdapter(adapter);
     }
 
-   /*public void buscar(View view) {
-        EditText etBuscar = (EditText) findViewById(R.id.etBuscar); //se enlaza con el obj del diseño
-        Intent busqueda = new Intent(this, Busqueda.class ); //se crea para ir a otro activity
-        busqueda.putExtra("nombreBusqueda", etBuscar.getText().toString()); //se agregan las variables que se quieren enviar al activity
-        Bundle bundle=new Bundle();
-        bundle.putSerializable("libros",listLibros);
-        busqueda.putExtras(bundle);
-        startActivity(busqueda); //se abre el activity
-    }*/
-
-
+    private void initListener() {
+        svSearch.setOnQueryTextListener(this);
+    }
 
     private void llenarLibros() {
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria"));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria"));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria"));
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria"));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria"));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria"));
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria"));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria"));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria"));
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria"));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria"));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria"));
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria"));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria"));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria"));
+        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
+        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
+        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
+        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
+        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
+        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
+        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
+        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
+        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
+        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
+        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
+        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
+        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
+        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
+        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
 
+    }
+
+    @Override
+    public void itemClick(Libro libro) {
+        Intent intent = new Intent(this, Descripcion.class);
+        intent.putExtra("libroDetail", libro);
+        startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slider_out_left);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        adapter.filter(newText);
+        return false;
     }
 }
