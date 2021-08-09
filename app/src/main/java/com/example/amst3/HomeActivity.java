@@ -3,7 +3,7 @@ package com.example.amst3;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.SearchView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,6 +14,8 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity {
     ArrayList<Libro> listLibros;
     RecyclerView recycler;
+    SearchView svSearch;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +40,7 @@ public class HomeActivity extends AppCompatActivity {
         recycler.setAdapter(adapter);
     }
 
-   public void buscar(View view) {
+   /*public void buscar(View view) {
         EditText etBuscar = (EditText) findViewById(R.id.etBuscar); //se enlaza con el obj del diseño
         Intent busqueda = new Intent(this, Busqueda.class ); //se crea para ir a otro activity
         busqueda.putExtra("nombreBusqueda", etBuscar.getText().toString()); //se agregan las variables que se quieren enviar al activity
@@ -46,7 +48,9 @@ public class HomeActivity extends AppCompatActivity {
         bundle.putSerializable("libros",listLibros);
         busqueda.putExtras(bundle);
         startActivity(busqueda); //se abre el activity
-    }
+    }*/
+
+
 
     private void llenarLibros() {
         listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria"));
