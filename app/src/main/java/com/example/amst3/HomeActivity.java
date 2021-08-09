@@ -111,13 +111,12 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
         if (listLibros == null){
             listLibros = new ArrayList<>();
             llenarLibros();
-            System.out.println(listLibros);
         }else{
             homeButton.setImageResource(R.drawable.ic_home);
             catButton.setImageResource(R.drawable.ic_cat_celeste);
             this.setTitle("Libros de "+strCat);
         }
-
+        System.out.println(listLibros);
         adapter = new RecyclerAdapter(listLibros, this);
         recycler.setAdapter(adapter);
     }

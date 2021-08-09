@@ -38,7 +38,7 @@ public class Categorias extends AppCompatActivity {
                 listLibrosCat3.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria(), l.getPrecio()));
             }
             if (l.getCategoria().equals("categoria4")){
-                listLibrosCat3.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria(), l.getPrecio()));
+                listLibrosCat4.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria(), l.getPrecio()));
             }
         }
     }
