@@ -8,8 +8,8 @@
 
     <Space
         android:id="@+id/space2"
-        android:layout_width="360dp"
-        android:layout_height="117dp"
+        android:layout_width="410dp"
+        android:layout_height="107dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
