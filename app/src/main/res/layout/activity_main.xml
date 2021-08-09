@@ -15,11 +15,12 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:textSize="12dp"
-        android:textColor="#454545"
-        android:gravity="center_horizontal"
         android:layout_alignParentBottom="true"
-        android:text="www.androidhive.info" />
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/advent_pro_medium"
+        android:gravity="center_horizontal"
+        android:text="Diseñado para los amantes de las letras"
+        android:textColor="#6A6A6A"
+        android:textSize="14sp" />
 
 </RelativeLayout>
