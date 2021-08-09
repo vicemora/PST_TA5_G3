@@ -73,7 +73,11 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
         catButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(getApplicationContext(), Categorias.class ); //se crea para ir a otro activity
+                Bundle bundle=new Bundle();
+                bundle.putSerializable("libros",listLibros);
+                i.putExtras(bundle);
+                startActivity(i); //se abre el activity
             }
         });
         homeButton.setOnClickListener(new View.OnClickListener() {

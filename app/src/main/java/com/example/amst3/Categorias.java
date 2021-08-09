@@ -29,42 +29,42 @@ public class Categorias extends AppCompatActivity {
     private void llenarLibros(ArrayList<Libro> libros) {
         for (Libro l:libros){
             if (l.getCategoria().equals("categoria1")){
-                listLibrosCat1.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria()));
+                listLibrosCat1.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria(), l.getPrecio()));
             }
             if (l.getCategoria().equals("categoria2")){
-                listLibrosCat2.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria()));
+                listLibrosCat2.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria(), l.getPrecio()));
             }
             if (l.getCategoria().equals("categoria3")){
-                listLibrosCat3.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria()));
+                listLibrosCat3.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria(), l.getPrecio()));
             }
             if (l.getCategoria().equals("categoria4")){
-                listLibrosCat3.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria()));
+                listLibrosCat3.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria(), l.getPrecio()));
             }
         }
     }
     public void btnCategoria1(View view) {
-        Intent categoria1 = new Intent(this, ResCategoria.class ); //se crea para ir a otro activity
+        Intent categoria1 = new Intent(this, HomeActivity.class ); //se crea para ir a otro activity
         Bundle bundle=new Bundle();
         bundle.putSerializable("librosCat",listLibrosCat1);
         categoria1.putExtras(bundle);
         startActivity(categoria1); //se abre el activity
     }
     public void btnCategoria2(View view) {
-        Intent categoria2 = new Intent(this, ResCategoria.class ); //se crea para ir a otro activity
+        Intent categoria2 = new Intent(this, HomeActivity.class ); //se crea para ir a otro activity
         Bundle bundle=new Bundle();
         bundle.putSerializable("librosCat",listLibrosCat2);
         categoria2.putExtras(bundle);
         startActivity(categoria2); //se abre el activity
     }
     public void btnCategoria3(View view) {
-        Intent categoria3 = new Intent(this, ResCategoria.class ); //se crea para ir a otro activity
+        Intent categoria3 = new Intent(this, HomeActivity.class ); //se crea para ir a otro activity
         Bundle bundle=new Bundle();
         bundle.putSerializable("librosCat",listLibrosCat3);
         categoria3.putExtras(bundle);
         startActivity(categoria3); //se abre el activity
     }
     public void btnCategoria4(View view) {
-        Intent categoria4 = new Intent(this, ResCategoria.class ); //se crea para ir a otro activity
+        Intent categoria4 = new Intent(this, HomeActivity.class ); //se crea para ir a otro activity
         Bundle bundle=new Bundle();
         bundle.putSerializable("librosCat",listLibrosCat4);
         categoria4.putExtras(bundle);
