@@ -141,6 +141,7 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
         Intent intent = new Intent(this, Descripcion.class);
         intent.putExtra("libroDetail", libro);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right,R.anim.slider_out_left);
     }
 
     @Override

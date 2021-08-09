@@ -23,6 +23,8 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        etUsuario=(EditText)findViewById(R.id.etUsuario);
+        etPassword=(EditText)findViewById(R.id.etPassword);
 /**
         //Manejando encendido del icono de inicio
         Drawable p, p_celeste, l, l_celeste;
