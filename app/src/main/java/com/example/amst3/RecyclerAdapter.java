@@ -27,6 +27,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         listLibrosOriginal.addAll(listLibros);
     }
 
+    @NonNull
     @Override
     public RecyclerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //enlaza el adaptador con el archivo item list
@@ -39,9 +40,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
     public void onBindViewHolder(@NonNull final RecyclerHolder holder, final int position) {
         final Libro libro = listLibros.get(position);
         //establece comunicacion entre el adaptador y viewholderdatos
-        holder.etNombre.setText(libro.getNombre());
-        holder.etAutor.setText(libro.getAutor());
-        holder.etEditorial.setText(libro.getEditorial());
+        holder.etNombre.setText("Título: " + libro.getNombre());
+        holder.etAutor.setText("Autor: " + libro.getAutor());
+        holder.etEditorial.setText("Editorial: " + libro.getEditorial());
+        holder.etPrecio.setText("$" + Double.toString(libro.getPrecio()));
         holder.foto.setImageResource(libro.getFoto());
 
         holder.itemView.setOnClickListener((v -> { itemClick.itemClick(libro);}));
@@ -76,7 +78,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
     }
 
     public class RecyclerHolder extends RecyclerView.ViewHolder {
-        private TextView etNombre, etAutor, etEditorial;
+        private TextView etNombre, etAutor, etEditorial,etPrecio;
         private ImageView foto;
 
         public RecyclerHolder(@NonNull View itemView_1) {
@@ -84,6 +86,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
             etNombre= (TextView) itemView.findViewById(R.id.idNombre);
             etAutor= (TextView) itemView.findViewById(R.id.idAutor);
             etEditorial= (TextView) itemView.findViewById(R.id.idEditorial);
+            etPrecio = (TextView) itemView.findViewById(R.id.idPrecio);
             foto=(ImageView) itemView.findViewById(R.id.idImagen);
         }
     }

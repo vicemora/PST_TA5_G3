@@ -26,14 +26,15 @@
             android:screenOrientation="fullSensor"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
+        </activity>
+        <activity android:name=".Descripcion" />
+
+        <activity android:name=".HomeActivity"
+            android:label="Libros">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name=".Descripcion" />
-        <activity android:name=".HomeActivity">
-
         </activity>
     </application>
 

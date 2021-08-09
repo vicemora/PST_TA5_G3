@@ -12,12 +12,13 @@ public class Descripcion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_descripcion);
-        Bundle bundle = getIntent().getExtras();
+        Libro libro = (Libro) getIntent().getExtras().get("libroDetail");
+        System.out.println(libro.getNombre());
         TextView nombre = (TextView) findViewById(R.id.idNombreDescripcion);
         TextView descripcion = (TextView) findViewById(R.id.idDescripcionDescripcion);
         ImageView imagen = (ImageView) findViewById(R.id.idImagenDescripcion);
-        nombre.setText(bundle.getString("nombre"));
-        descripcion.setText(bundle.getString("descripcion"));
-        imagen.setImageResource(bundle.getInt("imagen"));
+        nombre.setText(libro.getNombre());
+        descripcion.setText(libro.getDescripcion());
+        imagen.setImageResource(libro.getFoto());
     }
 }
