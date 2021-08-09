@@ -22,6 +22,8 @@ public class LoginActivity extends AppCompatActivity {
         etUsuario=(EditText)findViewById(R.id.etUsuario);
         etPassword=(EditText)findViewById(R.id.etPassword);
 
+
+
     }
 
     /**
