@@ -22,7 +22,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/space2">
+        app:layout_constraintTop_toBottomOf="@+id/space2"
+        app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,118 +32,196 @@
 
             <TextView
                 android:id="@+id/textView18"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:paddingStart="12dp"
-                android:paddingEnd="12dp"
-                android:text="Usuario" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Usuario"
+                android:textSize="22sp" />
 
             <EditText
                 android:id="@+id/et1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="330dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/custom_input"
                 android:ems="10"
+                android:fontFamily="@font/advent_pro_medium"
                 android:hint="Ingresar nombre de usuario"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView19"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Contraseña" />
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Contraseña"
+                android:textSize="22sp" />
 
             <EditText
                 android:id="@+id/et2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="330dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/custom_input"
                 android:ems="10"
+                android:fontFamily="@font/advent_pro_medium"
                 android:hint="Contraseña"
-                android:inputType="textPersonName" />
+                android:inputType="textPassword"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView20"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Correo" />
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Correo"
+                android:textSize="22sp" />
 
             <EditText
                 android:id="@+id/et3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="330dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/custom_input"
                 android:ems="10"
-                android:hint="Correo electrónica"
-                android:inputType="textPersonName" />
+                android:fontFamily="@font/advent_pro_medium"
+                android:hint="Correo electrónico"
+                android:inputType="textEmailAddress"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView21"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nombres" />
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Nombres"
+                android:textSize="22sp" />
 
             <EditText
                 android:id="@+id/et4"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="330dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/custom_input"
                 android:ems="10"
+                android:fontFamily="@font/advent_pro_medium"
                 android:hint="Nombres"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView22"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Apellidos" />
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Apellidos"
+                android:textSize="22sp" />
 
             <EditText
                 android:id="@+id/et5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="330dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/custom_input"
                 android:ems="10"
+                android:fontFamily="@font/advent_pro_medium"
                 android:hint="Apellidos"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView23"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Celular" />
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Celular"
+                android:textSize="22sp" />
 
             <EditText
                 android:id="@+id/et6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="330dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/custom_input"
                 android:ems="10"
+                android:fontFamily="@font/advent_pro_medium"
                 android:hint="Número de celular"
-                android:inputType="textPersonName" />
+                android:inputType="number"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:textSize="20sp" />
 
             <TextView
                 android:id="@+id/textView24"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Favorito" />
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Favorito"
+                android:textSize="22sp" />
 
             <EditText
                 android:id="@+id/et7"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_width="330dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/custom_input"
                 android:ems="10"
+                android:fontFamily="@font/advent_pro_medium"
+                android:hint="Ingrese su género favorito"
                 android:inputType="textPersonName"
-                android:text="Name" />
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:textSize="20sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="120dp">
 
                 <Button
                     android:id="@+id/button2"
-                    android:layout_width="214dp"
-                    android:layout_height="51dp"
+                    android:layout_width="220dp"
+                    android:layout_height="50dp"
+                    android:layout_marginVertical="8dp"
                     android:layout_marginStart="80dp"
-                    android:layout_marginTop="32dp"
+                    android:layout_marginTop="50dp"
                     android:layout_marginEnd="80dp"
+                    android:layout_marginBottom="32dp"
                     android:background="@drawable/button_rounded"
                     android:drawablePadding="12dp"
                     android:fontFamily="@font/advent_pro_medium"
+                    android:onClick="registrarse"
                     android:text="Registrase"
                     android:textColor="#E8E6E6"
                     android:textSize="16sp"
@@ -152,7 +231,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
-                    />
+                    app:layout_constraintTop_toTopOf="parent" />
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
     </ScrollView>

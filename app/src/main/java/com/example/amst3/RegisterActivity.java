@@ -56,12 +56,12 @@ public class RegisterActivity extends AppCompatActivity {
         String celular=et6.getText().toString();
         String favorito=et7.getText().toString();
 
-        bd.execSQL("insert into usuarios (nombre_usuario,contraseña,nombres,apellidos,correo,celular,favorito) " +
+        bd.execSQL("insert into usuarios (nombre_usuario,contraseña,nombre,apellido,correo,celular,favorito) " +
                 "values ('"+username+"','"+password+"','"+nombres+"','"+apellidos+"','"+correo+"','"+celular+"','"+favorito+"')");
 
         Toast.makeText(this, "Se cargaron los datos del artículo",
                 Toast.LENGTH_SHORT).show();
-        //bd.close()
+        bd.close();
     }
 
 
