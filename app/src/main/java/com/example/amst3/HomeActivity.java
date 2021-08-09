@@ -24,14 +24,19 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
 
     private RecyclerAdapter adapter;
     private ArrayList<Libro> listLibros;
+    private String strCat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try{
-            listLibros = (ArrayList<Libro>) getIntent().getExtras().get("libros");
+            Bundle bundle= getIntent().getExtras();
+            listLibros = (ArrayList<Libro>) bundle.getSerializable("libros");
+            strCat = bundle.getString("strCat");
+
         } catch (NullPointerException e) {
             listLibros = null;
+            strCat=null;
         }
 
         setContentView(R.layout.activity_home);
@@ -110,7 +115,7 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
         }else{
             homeButton.setImageResource(R.drawable.ic_home);
             catButton.setImageResource(R.drawable.ic_cat_celeste);
-            this.setTitle("Libros de ");
+            this.setTitle("Libros de "+strCat);
         }
 
         adapter = new RecyclerAdapter(listLibros, this);
@@ -122,21 +127,21 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
     }
 
     private void llenarLibros() {
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
+        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria1", 10.11));
+        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria2", 10.11));
+        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria3", 10.11));
+        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria4", 10.11));
+        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria1", 10.11));
+        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria3", 10.11));
+        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria1", 10.11));
+        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria1", 10.11));
+        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria2", 10.11));
+        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria3", 10.11));
+        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria4", 10.11));
+        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria1", 10.11));
+        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria2", 10.11));
+        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria3", 10.11));
+        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria4", 10.11));
 
     }
 
