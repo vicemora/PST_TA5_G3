@@ -31,7 +31,7 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
         super.onCreate(savedInstanceState);
         try{
             Bundle bundle= getIntent().getExtras();
-            listLibros = (ArrayList<Libro>) bundle.getSerializable("libros");
+            listLibros = (ArrayList<Libro>) bundle.getSerializable("librosCat");
             strCat = bundle.getString("strCat");
 
         } catch (NullPointerException e) {
