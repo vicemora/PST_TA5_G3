@@ -7,8 +7,8 @@
     tools:context=".Categorias">
 
     <LinearLayout
-        android:layout_width="296dp"
-        android:layout_height="92dp"
+        android:layout_width="258dp"
+        android:layout_height="91dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,19 +22,19 @@
 
             <Button
                 android:id="@+id/cat1btn"
-                android:layout_width="wrap_content"
+                android:layout_width="145dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="btnCategoria1"
-                android:text="categoria 1" />
+                android:text="Romance" />
 
             <Button
                 android:id="@+id/cat2btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="146dp"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:onClick="btnCategoria2"
-                android:text="categoria 2" />
+                android:text="Infantil" />
         </LinearLayout>
 
         <LinearLayout
@@ -48,7 +48,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="btnCategoria3"
-                android:text="categoria 3" />
+                android:text="Clasicos" />
 
             <Button
                 android:id="@+id/cat4btn"
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="btnCategoria4"
-                android:text="categoria 4" />
+                android:text="Fantasia" />
         </LinearLayout>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

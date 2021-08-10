@@ -27,16 +27,16 @@ public class Categorias extends AppCompatActivity {
     }
     private void llenarLibros(ArrayList<Libro> libros) {
         for (Libro l:libros){
-            if (l.getCategoria().equals("categoria1")){
+            if (l.getCategoria().equals("Romance")){
                 listLibrosCat1.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria(), l.getPrecio()));
             }
-            if (l.getCategoria().equals("categoria2")){
+            if (l.getCategoria().equals("Infantil")){
                 listLibrosCat2.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria(), l.getPrecio()));
             }
-            if (l.getCategoria().equals("categoria3")){
+            if (l.getCategoria().equals("Clasicos")){
                 listLibrosCat3.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria(), l.getPrecio()));
             }
-            if (l.getCategoria().equals("categoria4")){
+            if (l.getCategoria().equals("Fantasia")){
                 listLibrosCat4.add(new Libro(l.getNombre(), l.getAutor(), l.getEditorial(), l.getDescripcion(), l.getFoto(), l.getCategoria(), l.getPrecio()));
             }
         }
@@ -46,7 +46,7 @@ public class Categorias extends AppCompatActivity {
         Bundle bundle=new Bundle();
         bundle.putSerializable("librosCat",listLibrosCat1);
         categoria1.putExtras(bundle);
-        categoria1.putExtra("strCat","Categoria1");
+        categoria1.putExtra("strCat","Romance");
         startActivity(categoria1); //se abre el activity
     }
     public void btnCategoria2(View view) {
@@ -54,7 +54,7 @@ public class Categorias extends AppCompatActivity {
         Bundle bundle=new Bundle();
         bundle.putSerializable("librosCat",listLibrosCat2);
         categoria2.putExtras(bundle);
-        categoria2.putExtra("strCat","Categoria2");
+        categoria2.putExtra("strCat","Infantil");
         startActivity(categoria2); //se abre el activity
     }
     public void btnCategoria3(View view) {
@@ -62,7 +62,7 @@ public class Categorias extends AppCompatActivity {
         Bundle bundle=new Bundle();
         bundle.putSerializable("librosCat",listLibrosCat3);
         categoria3.putExtras(bundle);
-        categoria3.putExtra("strCat","Categoria3");
+        categoria3.putExtra("strCat","Clasicos");
         startActivity(categoria3); //se abre el activity
     }
     public void btnCategoria4(View view) {
@@ -70,7 +70,7 @@ public class Categorias extends AppCompatActivity {
         Bundle bundle=new Bundle();
         bundle.putSerializable("librosCat",listLibrosCat4);
         categoria4.putExtras(bundle);
-        categoria4.putExtra("strCat","Categoria4");
+        categoria4.putExtra("strCat","Fantasia");
         startActivity(categoria4); //se abre el activity
     }
 
