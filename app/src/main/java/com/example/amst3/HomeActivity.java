@@ -19,19 +19,25 @@ import java.util.ArrayList;
 public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.RecyclerItemClick, SearchView.OnQueryTextListener {
     private RecyclerView recycler;
     private SearchView svSearch;
+    private boolean enHome = true;
 
     private ImageButton catButton, homeButton, carButton, profileButton;
 
     private RecyclerAdapter adapter;
     private ArrayList<Libro> listLibros;
+    private String strCat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         try{
-            listLibros = (ArrayList<Libro>) getIntent().getExtras().get("libros");
+            Bundle bundle= getIntent().getExtras();
+            listLibros = (ArrayList<Libro>) bundle.getSerializable("librosCat");
+            strCat = bundle.getString("strCat");
+
         } catch (NullPointerException e) {
             listLibros = null;
+            strCat=null;
         }
 
         setContentView(R.layout.activity_home);
@@ -83,7 +89,10 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
         homeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                if (!enHome) {
+                    Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                    startActivity(intent);
+                }
             }
         });
         carButton.setOnClickListener(new View.OnClickListener() {
@@ -105,39 +114,20 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
         System.out.println(listLibros == null);
         if (listLibros == null){
             listLibros = new ArrayList<>();
-            llenarLibros();
-            System.out.println(listLibros);
+            listLibros=Libro.listLibrosDatos;
         }else{
+            enHome = false;
             homeButton.setImageResource(R.drawable.ic_home);
             catButton.setImageResource(R.drawable.ic_cat_celeste);
-            this.setTitle("Libros de ");
+            this.setTitle("Libros de "+strCat);
         }
-
+        System.out.println(listLibros);
         adapter = new RecyclerAdapter(listLibros, this);
         recycler.setAdapter(adapter);
     }
 
     private void initListener() {
         svSearch.setOnQueryTextListener(this);
-    }
-
-    private void llenarLibros() {
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
-        listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria", 10.11));
-        listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria", 10.11));
-        listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria", 10.11));
-
     }
 
     @Override
