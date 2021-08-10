@@ -17,12 +17,7 @@ public class Libro implements Serializable {
                 "controla a cientos de estudiantes que están atrapados? Es el presidente y su " +
                 "misión inmediata es que el resto de alumnos no caigan en pánico, pero están " +
                 "encerrados a su suerte y acaban de recibir la noticia de que son parte de un " +
-                "proyecto que espera acabar con un porcentaje de la humanidad. Un experimento " +
-                "hizo humanos con cualidades extraordinarias, pero sólo dos de ellos alcanzaron " +
-                "el 100% y se consideran armas letales. Los líderes mundiales están conscientes " +
-                "de su importancia porque son la última oportunidad para llevar a cabo el " +
-                "experimento. Los elegidos tienen la decisión de luchar, o ser parte de una " +
-                "bestial estrategia para comenzar de cero a través de la exterminación. ¡Una saga " +
+                "proyecto que espera acabar con un porcentaje de la humanidad.¡Una saga " +
                 "adictiva que te mantiene en vilo hasta la última página!", R.drawable.bart, "Romance", 27.50));
         listLibrosDatos.add(new Libro("REMEMBER. UN AMOR INOLVIDABLE", "ROYER ASHLEY", "CROSS BOOKS", "Nada puede consolar " +
                 "a Levi. Tras la muerte de su novia en un trágico accidente, nada le merece la pena. " +
@@ -54,9 +49,7 @@ public class Libro implements Serializable {
                 "seno de su propio clan, un traidor se dispone a conquistar el poder del modo " +
                 "más artero y siniestro. A raíz de estos acontecimientos, las jerarquías del " +
                 "Clan del Trueno cambiarán para siempre. El bosque de los secretos es la tercera " +
-                "entrega de Los gatos guerreros. Traducida a veintiocho idiomas, la serie lleva " +
-                "más de diez millones de ejemplares vendidos en Estados Unidos y más de dos años " +
-                "en la lista de grandes éxitos del New York Times.", R.drawable.flanders, "Fantasia", 15.45));
+                "entrega de Los gatos guerreros.", R.drawable.flanders, "Fantasia", 15.45));
 
     }
 
