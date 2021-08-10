@@ -18,6 +18,8 @@ import android.widget.Toast;
 public class LoginActivity extends AppCompatActivity {
 
     private EditText etUsuario,etPassword;
+    public static Usuario user;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,43 +27,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         etUsuario=(EditText)findViewById(R.id.etUsuario);
         etPassword=(EditText)findViewById(R.id.etPassword);
-/**
-        //Manejando encendido del icono de inicio
-        Drawable p, p_celeste, l, l_celeste;
-        p = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_person);
-        p_celeste = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_person_celeste);
-        l = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_lock);
-        l_celeste = ContextCompat.getDrawable(getApplicationContext(), R.drawable.ic_lock_celeste);
 
-        etUsuario=(EditText)findViewById(R.id.etUsuario);
-        etUsuario.setCompoundDrawablesRelativeWithIntrinsicBounds(p, null, null, null);
-        etPassword=(EditText)findViewById(R.id.etPassword);
-        etPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(l, null, null, null);
-
-        etUsuario.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                System.out.println("\nuseractual = " + etUsuario.getCompoundDrawablesRelative()[0]
-                        + "\nuserLow = " + p
-                        + "\nuserUp = " + p_celeste);
-                if (etUsuario.getCompoundDrawablesRelative()[0] == p)
-                    etUsuario.setCompoundDrawablesRelativeWithIntrinsicBounds(p_celeste, null, null, null);
-                else
-                    etUsuario.setCompoundDrawablesRelativeWithIntrinsicBounds(p, null, null, null);
-            }
-        });
-        etPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-            @Override
-            public void onFocusChange(View v, boolean hasFocus) {
-                System.out.println("\npwactual = " + etPassword.getCompoundDrawablesRelative()[0]
-                        + "\npwLow = " + l
-                        + "\npwUp = " + l_celeste);
-                if (etPassword.getCompoundDrawablesRelative()[0] == l)
-                    etPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(l_celeste, null, null, null);
-                else
-                    etPassword.setCompoundDrawablesRelativeWithIntrinsicBounds(l, null, null, null);
-            }
-        });*/
     }
 
     /**
@@ -77,12 +43,18 @@ public class LoginActivity extends AppCompatActivity {
         //obteniendo usuario pasado en el editext
         String username = etUsuario.getText().toString();
         //se valida que el usuario exista, si existe se toma la contraseña, si no existe se muestr un toast
-        Cursor fila = bd.rawQuery(
-                "select contraseña from usuarios where nombre_usuario='" +username+"'",null);
-        if (fila.moveToFirst()) {
-            if(ValidarPass(fila.getString(0))){
-                //Crear objeto usuario STATICO
 
+        Cursor fila = bd.rawQuery(
+                "select nombre_usuario,contraseña,nombre,apellido,correo,celular,favorito" +
+                        " from usuarios where nombre_usuario='" +username+"'",null);
+        if (fila.moveToFirst()) {
+            if(ValidarPass(fila.getString(1))){
+                //Crear objeto usuario STATICO del usuario LOGEADO
+                user=new Usuario(fila.getString(0),fila.getString(2),
+                        fila.getString(3),fila.getString(4),fila.getString(5));
+                //Accediendo al HOME con user LOG
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(intent);
             }else Toast.makeText(this, "Contraseña Incorrecta",
                                                                  Toast.LENGTH_SHORT).show();
 

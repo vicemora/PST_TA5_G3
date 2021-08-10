@@ -6,57 +6,80 @@
     android:layout_height="match_parent"
     tools:context=".Categorias">
 
-    <LinearLayout
-        android:layout_width="296dp"
-        android:layout_height="92dp"
-        android:orientation="vertical"
+    <TableLayout
+        android:layout_width="374dp"
+        android:layout_height="597dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <TableRow
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
             <Button
                 android:id="@+id/cat1btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="160dp"
+                android:layout_height="300dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
                 android:layout_weight="1"
                 android:onClick="btnCategoria1"
-                android:text="categoria 1" />
-
-            <Button
-                android:id="@+id/cat2btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="btnCategoria2"
-                android:text="categoria 2" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/cat3btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:onClick="btnCategoria3"
-                android:text="categoria 3" />
+                android:text="Romance"
+                android:textSize="18sp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:textStyle="bold"
+                app:backgroundTint="#FC223B" />
 
             <Button
                 android:id="@+id/cat4btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="160dp"
+                android:layout_height="300dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
                 android:layout_weight="1"
                 android:onClick="btnCategoria4"
-                android:text="categoria 4" />
-        </LinearLayout>
-    </LinearLayout>
+                android:text="Fantasia"
+                android:textSize="18sp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:textStyle="bold"
+                app:backgroundTint="#45A2E5" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="404dp">
+
+            <Button
+                android:id="@+id/cat2btn"
+                android:layout_width="160dp"
+                android:layout_height="300dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:onClick="btnCategoria2"
+                android:text="Infantil"
+                android:textSize="18sp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:textStyle="bold"
+                app:backgroundTint="#FFB508" />
+
+            <Button
+                android:id="@+id/cat3btn"
+                android:layout_width="160dp"
+                android:layout_height="300dp"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_weight="1"
+                android:onClick="btnCategoria3"
+                android:text="Clasicos"
+                android:textSize="18sp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:textStyle="bold"
+                app:backgroundTint="#56B12E" />
+        </TableRow>
+
+    </TableLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -146,4 +146,11 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
         adapter.filter(newText.toLowerCase());
         return false;
     }
+
+
+    @Override
+    public void onBackPressed () {
+        //esto permite que el usuario no regrese a la pantalla de presentación
+        moveTaskToBack(true);
+    }
 }
