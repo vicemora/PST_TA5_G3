@@ -70,12 +70,12 @@
                 android:orientation="vertical">
 
                 <ImageButton
-                    android:id="@+id/idAddBtn"
+                    android:id="@+id/idRemoveFromCarBtn"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:backgroundTint="@color/white"
                     android:scaleType="center"
-                    app:srcCompat="@drawable/ic_add_to_car" />
+                    app:srcCompat="@drawable/ic_remove_from_car" />
 
                 <TextView
                     android:id="@+id/idPrecio"

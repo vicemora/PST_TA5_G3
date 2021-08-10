@@ -9,30 +9,28 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AMST3">
-        <activity android:name=".Categorias"
-            android:label="Categorias"/>
+
+        <activity android:name=".CarritoActivity"
+            android:label="Carrito de compras">
+        </activity>
+
+        <activity android:name=".Categorias" />
         <activity
             android:name=".LoginActivity"
             android:label="Login"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar" />
+            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar" />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="fullSensor"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".Descripcion" />
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-
-        <activity android:name=".Descripcion" />
-        <activity android:name=".RegisterActivity"
-            android:theme="@style/Theme.AppCompat.DayNight.DarkActionBar"/>
-        <activity android:name=".HomeActivity"
-            android:label="Libros">
-
         </activity>
     </application>
 
