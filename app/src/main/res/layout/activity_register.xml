@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterActivity">
+
+    <Space
+        android:id="@+id/space2"
+        android:layout_width="410dp"
+        android:layout_height="107dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/celeste"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/space2"
+        app:layout_constraintVertical_bias="1.0"
+        android:backgroundTint="#19759E">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Usuario"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et1"
+                android:layout_width="330dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:fontFamily="@font/advent_pro_medium"
+                android:hint="Ingresar nombre de usuario"
+                android:inputType="textPersonName"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView19"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Contraseña"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et2"
+                android:layout_width="330dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:fontFamily="@font/advent_pro_medium"
+                android:hint="Contraseña"
+                android:inputType="textPassword"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Correo"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et3"
+                android:layout_width="330dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:fontFamily="@font/advent_pro_medium"
+                android:hint="Correo electrónico"
+                android:inputType="textEmailAddress"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Nombres"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et4"
+                android:layout_width="330dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:fontFamily="@font/advent_pro_medium"
+                android:hint="Nombres"
+                android:inputType="textPersonName"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Apellidos"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et5"
+                android:layout_width="330dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:fontFamily="@font/advent_pro_medium"
+                android:hint="Apellidos"
+                android:inputType="textPersonName"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Celular"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et6"
+                android:layout_width="330dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:fontFamily="@font/advent_pro_medium"
+                android:hint="Número de celular"
+                android:inputType="number"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView24"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:fontFamily="@font/advent_pro_medium"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:text="Favorito"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/et7"
+                android:layout_width="330dp"
+                android:layout_height="45dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/custom_input"
+                android:ems="10"
+                android:fontFamily="@font/advent_pro_medium"
+                android:hint="Ingrese su género favorito"
+                android:inputType="textPersonName"
+                android:paddingStart="4dp"
+                android:paddingEnd="8dp"
+                android:textSize="20sp" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp">
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="220dp"
+                    android:layout_height="50dp"
+                    android:layout_marginVertical="8dp"
+                    android:layout_marginStart="80dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="80dp"
+                    android:layout_marginBottom="32dp"
+                    android:background="@drawable/button_rounded"
+                    android:drawablePadding="12dp"
+                    android:fontFamily="@font/advent_pro_medium"
+                    android:onClick="registrarse"
+                    android:text="Registrase"
+                    android:textColor="#E8E6E6"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:backgroundTint="#19759E"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.497"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

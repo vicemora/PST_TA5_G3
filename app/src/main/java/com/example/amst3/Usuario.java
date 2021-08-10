@@ -8,6 +8,14 @@ public class Usuario {
     private String correo;
     private String celular;
 
+    /**
+     * Contructor de la clase usuario
+     * @param username
+     * @param nombre
+     * @param apellido
+     * @param correo
+     * @param celular
+     */
     public Usuario(String username, String nombre,String apellido, String correo, String celular){
 
         this.username=username;
@@ -17,6 +25,8 @@ public class Usuario {
         this.celular=celular;
 
     }
+
+    //getters de la clase Usuario
 
     public String getApellido() {
         return apellido;
