@@ -53,14 +53,22 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-
-
             }
 
             @Override
             public void afterTextChanged(Editable s) {
+                if(usuarioRepetido(et1.getText().toString())){
+                    AlertDialog.Builder builder= new AlertDialog.Builder(RegisterActivity.this);
+                    builder.setTitle("Importante").setMessage("El nombre de usuario ya se encuentra registrado, por favor prueba con uno diferente").
+                            setNeutralButton("entendido", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
 
+                                }
+                            });
+                    AlertDialog alert=builder.create();
+                    alert.show();
+                }
             }
         });
 
@@ -86,22 +94,37 @@ public class RegisterActivity extends AppCompatActivity {
         String apellidos=et5.getText().toString();
         String celular=et6.getText().toString();
         String favorito=et7.getText().toString();
+        if(username!="" && password!="" && correo!="" && nombres!=""
+                    && apellidos!="" && apellidos!="" && celular!="" && favorito!="" && usuarioRepetido(username)) {
+            bd.execSQL("insert into usuarios (nombre_usuario,contraseña,nombre,apellido,correo,celular,favorito) " +
+                    "values ('" + username + "','" + password + "','" + nombres + "','" + apellidos + "','" + correo + "','" + celular + "','" + favorito + "')");
 
-        bd.execSQL("insert into usuarios (nombre_usuario,contraseña,nombre,apellido,correo,celular,favorito) " +
-                "values ('"+username+"','"+password+"','"+nombres+"','"+apellidos+"','"+correo+"','"+celular+"','"+favorito+"')");
+            bd.close();
+            //Alert dialog para indicar que el registro ha sido exitoso
+            AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+            builder.setTitle("¡Gracias por Unirse!").setMessage("Se ha registrado su cuenta con éxito").
+                    setNeutralButton("Volver al inicio", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            finish();
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
+        }else{
+            AlertDialog.Builder builder = new AlertDialog.Builder(RegisterActivity.this);
+            builder.setTitle("¡Algo no ha ido bien!").setMessage("Por favor, asegúrate de llenar todos los campos/revisar el nombre de usuario").
+                    setNeutralButton("¡Lo haré!", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //no actions required
+                        }
+                    });
+            AlertDialog alert = builder.create();
+            alert.show();
 
-        bd.close();
-        //Alert dialog para indicar que el registro ha sido exitoso
-        AlertDialog.Builder builder= new AlertDialog.Builder(RegisterActivity.this);
-        builder.setTitle("¡Gracias por Unirse!").setMessage("Se ha registrado su cuenta con éxito").
-                        setNeutralButton("Volver al inicio", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                 finish();
-             }
-        });
-        AlertDialog alert=builder.create();
-        alert.show();
+
+        }
 
 
     }
@@ -120,9 +143,12 @@ public class RegisterActivity extends AppCompatActivity {
         //comprobando si el usuario ya existe
         Cursor fila = bd.rawQuery(
                 "select nombre from usuarios where nombre_usuario='"+user+"'", null);
+        if(fila.moveToFirst()){
+            bd.close();
+            return true;
+        }
         bd.close();
-        return fila.moveToFirst();
-
+        return false;
     }
     /*
     Método finish

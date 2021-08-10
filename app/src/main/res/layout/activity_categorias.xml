@@ -7,12 +7,19 @@
     tools:context=".Categorias">
 
     <TableLayout
-        android:layout_width="374dp"
-        android:layout_height="597dp"
+        android:layout_width="373dp"
+        android:layout_height="656dp"
+        android:layout_margin="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="70dp"
+        android:padding="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.479">
 
         <TableRow
             android:layout_width="match_parent"
@@ -25,10 +32,10 @@
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/advent_pro_medium"
                 android:onClick="btnCategoria1"
                 android:text="Romance"
-                android:textSize="18sp"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 app:backgroundTint="#FC223B" />
 
@@ -39,10 +46,10 @@
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/advent_pro_medium"
                 android:onClick="btnCategoria4"
                 android:text="Fantasia"
-                android:textSize="18sp"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 app:backgroundTint="#45A2E5" />
         </TableRow>
@@ -58,10 +65,10 @@
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/advent_pro_medium"
                 android:onClick="btnCategoria2"
                 android:text="Infantil"
-                android:textSize="18sp"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 app:backgroundTint="#FFB508" />
 
@@ -72,10 +79,10 @@
                 android:layout_marginLeft="4dp"
                 android:layout_marginRight="4dp"
                 android:layout_weight="1"
+                android:fontFamily="@font/advent_pro_medium"
                 android:onClick="btnCategoria3"
                 android:text="Clasicos"
-                android:textSize="18sp"
-                android:fontFamily="@font/advent_pro_medium"
+                android:textSize="22sp"
                 android:textStyle="bold"
                 app:backgroundTint="#56B12E" />
         </TableRow>
