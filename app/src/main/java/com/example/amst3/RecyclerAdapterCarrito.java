@@ -16,25 +16,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.RecyclerHolder> {
+public class RecyclerAdapterCarrito extends RecyclerView.Adapter<RecyclerAdapterCarrito.RecyclerHolder> {
 
     private ArrayList<Libro> listLibros;
     private ArrayList<Libro> listLibrosOriginal;
     private RecyclerItemClick itemClick;
+    private TextView costoText;
 
-    public RecyclerAdapter(ArrayList<Libro> listLibros, RecyclerItemClick itemClick) {
+    public RecyclerAdapterCarrito(ArrayList<Libro> listLibros, RecyclerItemClick itemClick, TextView costoText) {
         this.listLibros = listLibros;
         this.itemClick = itemClick;
         this.listLibrosOriginal = new ArrayList<>();
+        this.costoText = costoText;
         listLibrosOriginal.addAll(listLibros);
     }
 
     @NonNull
     @Override
     public RecyclerHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        //enlaza el adaptador con el archivo item list
+        //enlaza el adaptador con el archivo item list carrito
         View view= LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_list, null, false); //se infla el view
+                .inflate(R.layout.item_list_carrito, null, false); //se infla el view
         return new RecyclerHolder(view);
     }
 
@@ -47,14 +49,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         holder.etEditorial.setText("Editorial: " + libro.getEditorial());
         holder.etPrecio.setText("$" + Double.toString(libro.getPrecio()));
         holder.foto.setImageResource(libro.getFoto());
-        holder.addToCarBtn.setOnClickListener(new View.OnClickListener() {
+        holder.removeFromCarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Carrito.addLibro(libro))
-                    Toast.makeText(holder.itemView.getContext(), "Libro añadido al carrito", Toast.LENGTH_SHORT).show();
-                else{
-                    Toast.makeText(holder.itemView.getContext(), "El libro ya fue añadido previamente", Toast.LENGTH_SHORT).show();
-                }
+                Carrito.removeLibro(libro);
+                costoText.setText("$" + String.valueOf(Carrito.getCosto()));
+                notifyDataSetChanged();
+                Toast.makeText(holder.itemView.getContext(), "El libro se ha removido", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -66,33 +67,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
         return listLibros.size();
     }
 
-    public void filter(final String strSearch){
-        if (strSearch.length() == 0) {
-            listLibros.clear();
-            listLibros.addAll(listLibrosOriginal);
-        }
-        else {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                listLibros.clear();
-                List<Libro> collect = listLibrosOriginal.stream().filter(i -> i.getNombre().toLowerCase().contains(strSearch)).collect(Collectors.toList());
-                listLibros.addAll(collect);
-            }
-            else{
-                listLibros.clear();
-                for (Libro i : listLibrosOriginal){
-                    if (i.getNombre().toLowerCase().contains(strSearch)){
-                        listLibros.add(i);
-                    }
-                }
-            }
-        }
-        notifyDataSetChanged();
-    }
-
     public class RecyclerHolder extends RecyclerView.ViewHolder {
         private TextView etNombre, etAutor, etEditorial, etPrecio;
         private ImageView foto;
-        private ImageButton addToCarBtn;
+        private ImageButton removeFromCarBtn;
 
         public RecyclerHolder(@NonNull View itemView_1) {
             super(itemView_1);
@@ -101,7 +79,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.Recycl
             etEditorial = (TextView) itemView.findViewById(R.id.idEditorial);
             etPrecio = (TextView) itemView.findViewById(R.id.idPrecio);
             foto = (ImageView) itemView.findViewById(R.id.idImagen);
-            addToCarBtn = (ImageButton) itemView.findViewById(R.id.idAddBtn);
+            removeFromCarBtn = (ImageButton) itemView.findViewById(R.id.idRemoveFromCarBtn);
         }
     }
 

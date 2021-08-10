@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,12 +16,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Profile extends AppCompatActivity {
-    Usuario user = new Usuario("carlossteven9xd", "Carlos","Cordero", "carlossteven9xd@gmail.com", "+19294084848");
-    String username = user.getUsername();
-    String nombre = user.getNombre();
-    String apellido = user.getApellido();
-    String correo = user.getCorreo();
-    String celular = user.getCelular();
+
+    String username = LoginActivity.user.getUsername();
+    String nombre = LoginActivity.user.getNombre();
+    String apellido = LoginActivity.user.getApellido();
+    String correo = LoginActivity.user.getCorreo();
+    String celular = LoginActivity.user.getCelular();
     TextView username2;
     TextView nombre2 ;
     TextView apellido2 ;
@@ -77,6 +78,13 @@ public class Profile extends AppCompatActivity {
         }
     }
     public void volver(View view){
+
+    }
+    public void cerrar(View view){
+        LoginActivity.user = null;
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+
     }
     public void cambiar(View view){
         if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.M){

@@ -80,9 +80,6 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(), Categorias.class ); //se crea para ir a otro activity
-                Bundle bundle=new Bundle();
-                bundle.putSerializable("libros",listLibros);
-                i.putExtras(bundle);
                 startActivity(i); //se abre el activity
             }
         });
@@ -98,7 +95,8 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
         carButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(getApplicationContext(), CarritoActivity.class ); //se crea para ir a otro activity
+                startActivity(i); //se abre el activity
             }
         });
         profileButton.setOnClickListener(new View.OnClickListener() {
@@ -145,7 +143,7 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
 
     @Override
     public boolean onQueryTextChange(String newText) {
-        adapter.filter(newText);
+        adapter.filter(newText.toLowerCase());
         return false;
     }
 
