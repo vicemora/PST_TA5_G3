@@ -42,6 +42,7 @@
                     android:id="@+id/idNombre"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/advent_pro_medium"
                     android:text="Nombre"
                     android:textAlignment="viewStart"
                     android:textSize="14sp" />
@@ -50,6 +51,7 @@
                     android:id="@+id/idAutor"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/advent_pro_medium"
                     android:text="Autor"
                     android:textSize="14sp" />
 
@@ -57,13 +59,14 @@
                     android:id="@+id/idEditorial"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/advent_pro_medium"
                     android:text="Editorial" />
 
             </LinearLayout>
 
             <LinearLayout
                 android:id="@+id/linearLayout3"
-                android:layout_width="50dp"
+                android:layout_width="60dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
@@ -81,6 +84,7 @@
                     android:id="@+id/idPrecio"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/advent_pro_medium"
                     android:text="Precio"
                     android:textAlignment="center" />
 
