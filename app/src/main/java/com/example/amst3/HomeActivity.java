@@ -110,7 +110,7 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
         System.out.println(listLibros == null);
         if (listLibros == null){
             listLibros = new ArrayList<>();
-            llenarLibros();
+            listLibros=Libro.listLibrosDatos;
         }else{
             homeButton.setImageResource(R.drawable.ic_home);
             catButton.setImageResource(R.drawable.ic_cat_celeste);
@@ -125,7 +125,7 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
         svSearch.setOnQueryTextListener(this);
     }
 
-    private void llenarLibros() {
+    /*private void llenarLibros() {
         listLibros.add(new Libro("libro1", "yo pues", "prueba", "descrip", R.drawable.bart, "categoria1", 10.11));
         listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria2", 10.11));
         listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria3", 10.11));
@@ -142,7 +142,7 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
         listLibros.add(new Libro("libro2", "yo pues", "prueba", "descrip", R.drawable.burns, "categoria3", 10.11));
         listLibros.add(new Libro("libro3", "yo pues", "prueba", "descrip", R.drawable.flanders, "categoria4", 10.11));
 
-    }
+    }*/
 
     @Override
     public void itemClick(Libro libro) {

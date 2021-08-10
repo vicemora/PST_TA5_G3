@@ -18,8 +18,7 @@ public class Categorias extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categorias);
-        Bundle bundle= getIntent().getExtras();
-        ArrayList<Libro> libros= (ArrayList<Libro>) bundle.getSerializable("libros");
+        ArrayList<Libro> libros=Libro.listLibrosDatos;
         listLibrosCat1= new ArrayList<>();
         listLibrosCat2= new ArrayList<>();
         listLibrosCat3= new ArrayList<>();
