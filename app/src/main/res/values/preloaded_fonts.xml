@@ -2,10 +2,7 @@
 <resources>
     <array name="preloaded_fonts" translatable="false">
         <item>@font/advent_pro_medium</item>
-<<<<<<< HEAD
-=======
         <item>@font/amatic_sc_bold</item>
         <item>@font/coda</item>
->>>>>>> 61d27de6830f4f84ac71fa50b95b4f41cd36d0dd
     </array>
 </resources>
