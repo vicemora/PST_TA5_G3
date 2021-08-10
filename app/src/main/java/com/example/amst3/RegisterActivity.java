@@ -53,14 +53,22 @@ public class RegisterActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-
-
             }
 
             @Override
             public void afterTextChanged(Editable s) {
+                if(usuarioRepetido(et1.getText().toString())){
+                    AlertDialog.Builder builder= new AlertDialog.Builder(RegisterActivity.this);
+                    builder.setTitle("Importante").setMessage("El nombre de usuario ya se encuentra registrado, por favor prueba con uno diferente").
+                            setNeutralButton("entendido", new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
 
+                                }
+                            });
+                    AlertDialog alert=builder.create();
+                    alert.show();
+                }
             }
         });
 
@@ -120,9 +128,12 @@ public class RegisterActivity extends AppCompatActivity {
         //comprobando si el usuario ya existe
         Cursor fila = bd.rawQuery(
                 "select nombre from usuarios where nombre_usuario='"+user+"'", null);
+        if(fila.moveToFirst()){
+            bd.close();
+            return true;
+        }
         bd.close();
-        return fila.moveToFirst();
-
+        return false;
     }
     /*
     Método finish
