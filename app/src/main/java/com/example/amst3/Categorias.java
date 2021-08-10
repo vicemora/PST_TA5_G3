@@ -27,7 +27,7 @@ public class Categorias extends AppCompatActivity {
         listLibrosCat4= new ArrayList<>();
         llenarLibros(libros);
 
-        /*homeButton = (ImageButton) findViewById(R.id.home_btn);
+        homeButton = (ImageButton) findViewById(R.id.home_btn);
         carButton = (ImageButton) findViewById(R.id.car_btn);
         profileButton = (ImageButton) findViewById(R.id.profile_btn);
 
@@ -51,7 +51,7 @@ public class Categorias extends AppCompatActivity {
                 Intent i = new Intent(getApplicationContext(), Profile.class ); //se crea para ir a otro activity
                 startActivity(i); //se abre el activity
             }
-        });*/
+        });
     }
     private void llenarLibros(ArrayList<Libro> libros) {
         for (Libro l:libros){
