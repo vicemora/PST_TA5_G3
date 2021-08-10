@@ -16,6 +16,7 @@ public class Descripcion extends AppCompatActivity {
         setContentView(R.layout.activity_descripcion);
         Libro libro = (Libro) getIntent().getExtras().get("libroDetail");
         System.out.println(libro.getNombre());
+        this.setTitle(libro.getNombre());
         TextView nombre = (TextView) findViewById(R.id.idNombreDescripcion);
         TextView descripcion = (TextView) findViewById(R.id.idDescripcionDescripcion);
         ImageView imagen = (ImageView) findViewById(R.id.idImagenDescripcion);
