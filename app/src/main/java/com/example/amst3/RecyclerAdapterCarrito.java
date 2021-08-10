@@ -23,6 +23,7 @@ public class RecyclerAdapterCarrito extends RecyclerView.Adapter<RecyclerAdapter
     private RecyclerItemClick itemClick;
     private TextView costoText;
 
+
     public RecyclerAdapterCarrito(ArrayList<Libro> listLibros, RecyclerItemClick itemClick, TextView costoText) {
         this.listLibros = listLibros;
         this.itemClick = itemClick;

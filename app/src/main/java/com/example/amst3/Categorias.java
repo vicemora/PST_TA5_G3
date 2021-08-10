@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -14,6 +15,7 @@ public class Categorias extends AppCompatActivity {
     ArrayList<Libro> listLibrosCat2;
     ArrayList<Libro> listLibrosCat3;
     ArrayList<Libro> listLibrosCat4;
+    private ImageButton homeButton, carButton, profileButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +26,32 @@ public class Categorias extends AppCompatActivity {
         listLibrosCat3= new ArrayList<>();
         listLibrosCat4= new ArrayList<>();
         llenarLibros(libros);
+
+        /*homeButton = (ImageButton) findViewById(R.id.home_btn);
+        carButton = (ImageButton) findViewById(R.id.car_btn);
+        profileButton = (ImageButton) findViewById(R.id.profile_btn);
+
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+        carButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+        profileButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Profile.class ); //se crea para ir a otro activity
+                startActivity(i); //se abre el activity
+            }
+        });*/
     }
     private void llenarLibros(ArrayList<Libro> libros) {
         for (Libro l:libros){

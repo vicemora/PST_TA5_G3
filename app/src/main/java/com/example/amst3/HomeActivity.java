@@ -102,7 +102,8 @@ public class HomeActivity extends AppCompatActivity implements RecyclerAdapter.R
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(getApplicationContext(), Profile.class ); //se crea para ir a otro activity
+                startActivity(i); //se abre el activity
             }
         });
     }

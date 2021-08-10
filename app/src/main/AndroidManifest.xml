@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.amst3">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"></uses-permission>
 
     <application
         android:allowBackup="true"
@@ -10,8 +11,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AMST3">
 
+
         <activity android:name=".CarritoActivity"
             android:label="Carrito de compras">
+        </activity>
+
+        <activity android:name=".Profile"
+            android:label="Perfil">
         </activity>
 
         <activity android:name=".Categorias" />

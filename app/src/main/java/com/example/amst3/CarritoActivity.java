@@ -24,7 +24,7 @@ public class CarritoActivity extends AppCompatActivity implements RecyclerAdapte
     private RecyclerView recycler;
     private RecyclerAdapterCarrito adapter;
     private ArrayList<Libro> listLibrosCarrito;
-    private ImageButton catButton, homeButton, carButton, profileButton;
+    private ImageButton catButton, homeButton, profileButton;
     private TextView costoText;
     private String strCat;
 
@@ -50,7 +50,6 @@ public class CarritoActivity extends AppCompatActivity implements RecyclerAdapte
 
         catButton = (ImageButton) findViewById(R.id.cat_btn);
         homeButton = (ImageButton) findViewById(R.id.home_btn);
-        carButton = (ImageButton) findViewById(R.id.car_btn);
         profileButton = (ImageButton) findViewById(R.id.profile_btn);
         catButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,16 +65,11 @@ public class CarritoActivity extends AppCompatActivity implements RecyclerAdapte
                 startActivity(intent);
             }
         });
-        carButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
         profileButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent i = new Intent(getApplicationContext(), Profile.class); //se crea para ir a otro activity
+                startActivity(i); //se abre el activity
             }
         });
     }

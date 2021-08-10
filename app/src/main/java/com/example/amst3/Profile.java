@@ -11,6 +11,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,6 +28,7 @@ public class Profile extends AppCompatActivity {
     TextView apellido2 ;
     TextView correo2 ;
     TextView celular2 ;
+    private ImageButton catButton, homeButton, carButton;
 
     ImageView mImageView;
     Button mChooseBtn;
@@ -49,6 +51,32 @@ public class Profile extends AppCompatActivity {
         celular2.setText(celular);
         mImageView = (ImageView) findViewById(R.id.foto_perfil);
         mChooseBtn = (Button) findViewById(R.id.boton);
+
+        catButton = (ImageButton) findViewById(R.id.cat_btn);
+        homeButton = (ImageButton) findViewById(R.id.home_btn);
+        carButton = (ImageButton) findViewById(R.id.car_btn);
+
+        catButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), Categorias.class ); //se crea para ir a otro activity
+                startActivity(i); //se abre el activity
+            }
+        });
+        homeButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+        carButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                startActivity(intent);
+            }
+        });
     }
     private void pickImageGallery() {
         Intent intent = new Intent(Intent.ACTION_PICK);
