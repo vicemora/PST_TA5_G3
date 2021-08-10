@@ -94,8 +94,11 @@ public class RegisterActivity extends AppCompatActivity {
         String apellidos=et5.getText().toString();
         String celular=et6.getText().toString();
         String favorito=et7.getText().toString();
-        if(username!="" && password!="" && correo!="" && nombres!=""
-                    && apellidos!="" && apellidos!="" && celular!="" && favorito!="" || !usuarioRepetido(username)) {
+
+
+
+        if((!username.equals("") && !password.equals("") && !correo.equals("") && !nombres.equals("")
+                    && !apellidos.equals("") && !apellidos.equals("") && !celular.equals("") && !favorito.equals("") ) && !usuarioRepetido(username)) {
             bd.execSQL("insert into usuarios (nombre_usuario,contraseña,nombre,apellido,correo,celular,favorito) " +
                     "values ('" + username + "','" + password + "','" + nombres + "','" + apellidos + "','" + correo + "','" + celular + "','" + favorito + "')");
 
