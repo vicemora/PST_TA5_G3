@@ -19,6 +19,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private EditText etUsuario,etPassword;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,12 +78,18 @@ public class LoginActivity extends AppCompatActivity {
         //obteniendo usuario pasado en el editext
         String username = etUsuario.getText().toString();
         //se valida que el usuario exista, si existe se toma la contraseña, si no existe se muestr un toast
-        Cursor fila = bd.rawQuery(
-                "select contraseña from usuarios where nombre_usuario='" +username+"'",null);
-        if (fila.moveToFirst()) {
-            if(ValidarPass(fila.getString(0))){
-                //Crear objeto usuario STATICO
 
+        Cursor fila = bd.rawQuery(
+                "select nombre_usuario,contraseña,nombre,apellido,correo,celular,favorito" +
+                        " from usuarios where nombre_usuario='" +username+"'",null);
+        if (fila.moveToFirst()) {
+            if(ValidarPass(fila.getString(1))){
+                //Crear objeto usuario STATICO del usuario LOGEADO
+                Usuario user=new Usuario(fila.getString(0),fila.getString(2),
+                        fila.getString(3),fila.getString(4),fila.getString(5));
+                //Accediendo al HOME con user LOG
+                Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                startActivity(intent);
             }else Toast.makeText(this, "Contraseña Incorrecta",
                                                                  Toast.LENGTH_SHORT).show();
 
