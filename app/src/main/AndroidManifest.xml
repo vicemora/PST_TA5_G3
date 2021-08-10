@@ -20,7 +20,10 @@
             android:label="Perfil">
         </activity>
 
-        <activity android:name=".Categorias" />
+        <activity android:name=".Categorias"
+            android:label="Categorías">
+        </activity>
+
         <activity android:name=".RegisterActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
