@@ -27,7 +27,7 @@
                 android:layout_weight="1"
                 android:onClick="btnCategoria1"
                 android:text="Romance"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:fontFamily="@font/advent_pro_medium"
                 android:textStyle="bold"
                 app:backgroundTint="#FC223B" />
@@ -41,7 +41,7 @@
                 android:layout_weight="1"
                 android:onClick="btnCategoria4"
                 android:text="Fantasia"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:fontFamily="@font/advent_pro_medium"
                 android:textStyle="bold"
                 app:backgroundTint="#45A2E5" />
@@ -60,7 +60,7 @@
                 android:layout_weight="1"
                 android:onClick="btnCategoria2"
                 android:text="Infantil"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:fontFamily="@font/advent_pro_medium"
                 android:textStyle="bold"
                 app:backgroundTint="#FFB508" />
@@ -74,7 +74,7 @@
                 android:layout_weight="1"
                 android:onClick="btnCategoria3"
                 android:text="Clasicos"
-                android:textSize="18sp"
+                android:textSize="22sp"
                 android:fontFamily="@font/advent_pro_medium"
                 android:textStyle="bold"
                 app:backgroundTint="#56B12E" />
